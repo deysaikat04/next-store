@@ -19,6 +19,10 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import {
+  ActiveToggleDropDownItem,
+  DeleteDropDownItem,
+} from "./_components/ProductActions";
 
 export default function AdminProductPage() {
   return (
@@ -98,6 +102,14 @@ async function ProductsTable() {
                       Edit
                     </Link>
                   </DropdownMenuItem>
+                  <ActiveToggleDropDownItem
+                    id={product.id}
+                    isAvailableForPurchase={product.isAvailableForPurchase}
+                  />
+                  <DeleteDropDownItem
+                    id={product.id}
+                    disabled={product._count.orders > 0}
+                  />
                 </DropdownMenuContent>
               </DropdownMenu>
             </TableCell>
