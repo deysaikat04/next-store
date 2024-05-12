@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/card";
 import db from "@/db/prisma";
 import { formatCurrency, formatNumber } from "@/lib/formatter";
-import { resolve } from "dns";
 
 async function getSalesData() {
   const data = await db.order.aggregate({
@@ -83,6 +82,7 @@ type DashboardCardProps = {
   subtitle: string;
   body: string;
 };
+
 function DashboardCard({ title, subtitle, body }: DashboardCardProps) {
   return (
     <Card>
